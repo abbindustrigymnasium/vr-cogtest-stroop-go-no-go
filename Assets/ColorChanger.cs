@@ -26,7 +26,7 @@ public class ColorChanger : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-        textNumber = Random.Range(1, 4);
+        textNumber = Random.Range(1, 5);
         switch (textNumber)
         {
             case 1:
@@ -45,7 +45,7 @@ public class ColorChanger : MonoBehaviour
                 m_TextComponent.text = "Red";
                 break;
         }
-        textColor = Random.Range(1, 4);
+        textColor = Random.Range(1, 5);
         switch (textColor)
         {
             case 1:
