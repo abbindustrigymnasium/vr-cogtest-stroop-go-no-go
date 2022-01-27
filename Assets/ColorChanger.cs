@@ -8,20 +8,21 @@ public class ColorChanger : MonoBehaviour
 
     public TMP_Text m_TextComponent;
 
-    // Start is called before the first frame update
+    int textNumber;
+
     void Start()
     {
-        //textObject.text = "RED";
-        //gameObject.GetComponent<Text>().text = "Your string here, yo!";
-        //Text textObject = GameObject.Find("textObject");
         m_TextComponent = GetComponent<TMP_Text>();
+
+        Random rnd = new Random();
+
         m_TextComponent.text = "Red";
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        textNumber = rnd.next(1, 4);
+        switch (textNumber)
     }
 }
