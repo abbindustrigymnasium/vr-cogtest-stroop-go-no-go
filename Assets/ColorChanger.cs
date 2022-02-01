@@ -7,41 +7,36 @@ public class ColorChanger : MonoBehaviour
 {
 
     public TMP_Text m_TextComponent;
-    public TMP_Text m_TextComponent2;
     public GameObject sphereComponent;
 
     int textNumber = 1;
     int textColor = 1;
     int Black = 1;
-    int right = 0;
-    int wrong = 0;
 
 
     void Start()
     {
-        m_TextComponent = GameObject.Find("colourText").GetComponent<TMP_Text>();
-        m_TextComponent2 = GameObject.Find("pointCounter").GetComponent<TMP_Text>();
+        m_TextComponent = GetComponent<TMP_Text>();
+        
+        
+
+        // m_TextComponent.text = "Red";
+        // m_TextComponent.color = new Color32(255, 128, 0, 255);
+
     }
 
     void Update()
     {
-        //m_TextComponent2.text = "Teeeext";
         if (Input.GetKeyDown("1") || Input.GetKeyDown("2") || Input.GetKeyDown("3") || Input.GetKeyDown("4"))
         {
             if (Black == 2 && Input.GetKeyDown(textNumber.ToString()))
             {
-                right += 1;
+                Debug.Log("Point!" + textNumber.ToString());
             }
             else if (Black == 1 && Input.GetKeyDown(textColor.ToString()))
             {
-                right += 1;
+                Debug.Log("Cool Point!" + textColor.ToString());
             }
-            else
-            {
-                wrong += 1;
-            }
-            m_TextComponent2.text = "wrong: " + wrong.ToString() + "\nright: " + right.ToString();
-
             Black = Random.Range(1, 3);
             switch (Black){
                 case 1: 
