@@ -16,6 +16,10 @@ public class ColorChanger : MonoBehaviour
     int right = 0;
     int wrong = 0;
 
+    float timeLimit = 120; // time limit in seconds
+    float timePassed = 0; // time passed since start
+    float timeToPress = 0; // time taken to press the button
+
 
     void Start()
     {
@@ -25,9 +29,12 @@ public class ColorChanger : MonoBehaviour
 
     void Update()
     {
+
+
         //m_TextComponent2.text = "Teeeext";
         if (Input.GetKeyDown("1") || Input.GetKeyDown("2") || Input.GetKeyDown("3") || Input.GetKeyDown("4"))
         {
+
             if (Black == 2 && Input.GetKeyDown(textNumber.ToString()))
             {
                 right += 1;
