@@ -20,6 +20,8 @@ public class cubescript : MonoBehaviour
         cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = new Vector3(0, 1.5f, 0);
         cube.AddComponent<BoxCollider>();
+        cube.AddComponent<Rigidbody>();
+        cube.GetComponent<Rigidbody>().useGravity = false;
         if(black == 1)
         {
             cube.GetComponent<Renderer>().material.color = Color.black;
@@ -49,7 +51,7 @@ public class cubescript : MonoBehaviour
                 createCubeTimer = 0.888f;
             else if (timePast > 30)
                 createCubeTimer = 1.110f;
-            else if (timePast > 0)
+            else if (timePast >= 0)
                 createCubeTimer = 1.332f;
         }
 
