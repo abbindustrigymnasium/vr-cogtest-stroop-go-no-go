@@ -9,6 +9,8 @@ public class ColorChanger : MonoBehaviour
     public TMP_Text m_TextComponent;
     public TMP_Text m_TextComponent2;
     public GameObject sphereComponent;
+    public AudioSource correctSound;
+    public AudioSource wrongSound;
 
     int textNumber = 1;
     int textColor = 1;
@@ -75,16 +77,19 @@ public class ColorChanger : MonoBehaviour
                 {
                     nrOfRight += 1;
                     right = 1;
+                    correctSound.Play();
                 }
                 else if (Black == 1 && Input.GetKeyDown(textColor.ToString()))
                 {
                     nrOfRight += 1;
                     right = 1;
+                    correctSound.Play();
                 }
                 else
                 {
                     nrOfWrong += 1;
                     right = 0;
+                    wrongSound.Play();
                 }
                 //m_TextComponent2.text = "wrong: " + nrOfWrong.ToString() + "\nright: " + nrOfRight.ToString();
 
