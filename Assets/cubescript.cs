@@ -11,6 +11,8 @@ public class cubescript : MonoBehaviour
 
     GameObject cube;
 
+
+
     List<GameObject> cubes = new List<GameObject>();
 
     void AddCube()
@@ -35,10 +37,27 @@ public class cubescript : MonoBehaviour
 
     void Start()
     {
-        AddCube();
+        // AddCube();
         
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("HIT");
+        for (int i = 0; i < cubes.Count; i++)
+        {
+            if (collision.gameObject.name == cubes[i].name)
+            {
+                cubes[i].GetComponent<Rigidbody>().useGravity = true;
+                Destroy(cubes[i], 2);
+                cubes.RemoveAt(i);
+                break;
+            }
+        }
+        
+        
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -46,13 +65,13 @@ public class cubescript : MonoBehaviour
         {
             AddCube();
             if (timePast > 90)
-                createCubeTimer = 0.666f;
+                createCubeTimer = 1.222f;
             else if (timePast > 60)
-                createCubeTimer = 0.888f;
+                createCubeTimer = 1.6666f;
             else if (timePast > 30)
-                createCubeTimer = 1.110f;
+                createCubeTimer = 2.220f;
             else if (timePast >= 0)
-                createCubeTimer = 1.332f;
+                createCubeTimer = 2.664f;
         }
 
         // Move the object forward along its z axis 1 unit/second.
@@ -60,13 +79,13 @@ public class cubescript : MonoBehaviour
         {
 
             if (timePast > 90)
-                cubes[i].transform.Translate(Vector3.forward * 6.0f *Time.deltaTime*-1);
+                cubes[i].transform.Translate(Vector3.forward * 12.0f *Time.deltaTime*-1);
             else if (timePast > 60)
-                cubes[i].transform.Translate(Vector3.forward * 5.0f * Time.deltaTime * -1);
+                cubes[i].transform.Translate(Vector3.forward * 10.0f * Time.deltaTime * -1);
             else if (timePast > 30)
-                cubes[i].transform.Translate(Vector3.forward * 4.0f * Time.deltaTime * -1);
+                cubes[i].transform.Translate(Vector3.forward * 8.0f * Time.deltaTime * -1);
             else if (timePast > 0)
-                cubes[i].transform.Translate(Vector3.forward * 3.0f * Time.deltaTime * -1);
+                cubes[i].transform.Translate(Vector3.forward * 6.0f * Time.deltaTime * -1);
 
             if (cubes[i].transform.position[2] < Camera.main.transform.position[2])
             {
